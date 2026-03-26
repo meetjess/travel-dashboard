@@ -34,7 +34,7 @@ function AddFlightForm({ onFlightAdded }) {
 
   return (
     <div>
-      <h2>Add a Flight</h2>
+      <h2 className="white">Add a Flight</h2>
       <input
         placeholder="Flight number (e.g. AS307)"
         value={flightNumber}

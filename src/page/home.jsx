@@ -8,8 +8,8 @@ export default function Home() {
   const handleFlightAdded = () => setRefresh((r) => r + 1);
 
   return (
-    <div style={{ maxWidth: 900, margin: "40px auto", padding: "0 20px", fontFamily: "sans-serif" }}>
-      <h1>✈️ My Flight Tracker</h1>
+    <div className="flight-tracker-container">
+      <h1 className="white">✈️ My Flight Tracker</h1>
       <AddFlightForm onFlightAdded={handleFlightAdded} />
       <FlightDashboard refresh={refresh} />
     </div>

@@ -47,20 +47,20 @@ export default function FlightDashboard({ refresh }) {
   }
 
   return (
-    <div>
-      <h2>My Flights</h2>
+    <div id="flight-dashboard">
       {flights.length === 0 ? (
         <p>No flights added yet.</p>
       ) : (
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        <table className="flight-table">
           <thead>
             <tr>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Flight Number</th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Date</th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Departure IATA</th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Arrival IATA</th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Scheduled Arrival</th>
-              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Actual Arrival</th>
+              <th>Flight #</th>
+              <th>Date</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+              <th>Status</th>
+              <th>Scheduled Arrival</th>
+              <th>Actual Arrival</th>
             </tr>
           </thead>
           <tbody>
@@ -68,6 +68,7 @@ export default function FlightDashboard({ refresh }) {
               const data = flightData[flight.id];
               let departureIata = "N/A";
               let arrivalIata = "N/A";
+              let flightStatus = "N/A";
               let scheduledArrival = "N/A";
               let actualArrival = "N/A";
 
@@ -79,6 +80,9 @@ export default function FlightDashboard({ refresh }) {
                 if (flightInfo.arrival && flightInfo.arrival.airport) {
                   arrivalIata = flightInfo.arrival.airport.iata || "N/A";
                 }
+                if (flightInfo.status) {
+                  flightStatus = flightInfo.status;
+                }
                 if (flightInfo.arrival && flightInfo.arrival.scheduledTime) {
                   scheduledArrival = flightInfo.arrival.scheduledTime.local || flightInfo.arrival.scheduledTime.utc || "N/A";
                 }
@@ -89,12 +93,13 @@ export default function FlightDashboard({ refresh }) {
 
               return (
                 <tr key={flight.id}>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{flight.flight_number}</td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{flight.date}</td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{departureIata}</td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{arrivalIata}</td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{scheduledArrival}</td>
-                  <td style={{ border: "1px solid #ddd", padding: "8px" }}>{actualArrival}</td>
+                  <td>{flight.flight_number}</td>
+                  <td>{flight.date}</td>
+                  <td>{departureIata}</td>
+                  <td>{arrivalIata}</td>
+                  <td>{flightStatus}</td>
+                  <td>{scheduledArrival}</td>
+                  <td>{actualArrival}</td>
                 </tr>
               );
             })}

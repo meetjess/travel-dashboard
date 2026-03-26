@@ -38,12 +38,33 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #152431;
 }
 
 #add-flight {
   background-color: #8f1919;
   padding: 20px;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 3px;
+}
+
+#flight-dashboard {
+  background-color: #ffffff;
+  padding: 8px;
+  margin: 20px;
+  border-radius: 3px;
+}
+.flight-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flight-table th,
+.flight-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.white {
+  color: white;
 }
