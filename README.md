@@ -2,3 +2,11 @@ Building a flight-tracking dashboard that automatically pulls live status update
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Upcoming
+- Add "editing" state to show options to select > delete or edit flights
+    - Edit/Done Toggle w. useState (isEditing, setIsEditing)
+    - Add confirmation prompt for update/delete
+
+- User permissions, login, authorization
+    - Look into options in Supabase
+
